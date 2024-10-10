@@ -1,0 +1,25 @@
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Sales Volume</th>
+      <th>Met Quoata?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let salesPerson of salesPersons">
+      <td>{{ salesPerson.theFirstName }}</td>
+      <td>{{ salesPerson.theLastName }}</td>
+      <td>{{ salesPerson.theEmail }}</td>
+      <td>{{ salesPerson.theSalesVolume }}</td>
+      <td>
+        <span *ngIf="toInteger(salesPerson.theSalesVolume) >= 6000; else notMet"
+          >Yes</span
+        >
+        <ng-template #notMet>No</ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
